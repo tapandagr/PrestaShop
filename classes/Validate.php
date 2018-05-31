@@ -1135,4 +1135,44 @@ class ValidateCore
     {
         return (bool)preg_match('/^[\w-]{3,255}$/u', $theme_name);
     }
+    
+    /*
+    ** Returns true if input is positive decimal
+    ** $value (Required) The input to be sanitized
+    ** $max If input is bigger than this, the function will return false
+    ** $decimals If the admin needs certain amount of decimals
+    ** $null If zero is included
+    */
+    public static function isDecimal($value,$max = null,$decimals = null,$null = null)
+    {
+        if(preg_replace("/[^0-9.]/","",$value) != $value){
+            return false;
+        }elseif(substr_count($value,".") > 1){
+            return false;
+        }elseif(strpos($value,".") == 0 || strpos($value,".") == strlen($value) - 1){
+            return false;
+        }else{
+            if($max !== null){
+                if($value > $max){
+                    return false;
+                }
+            }
+            
+            if($decimals !== null){
+                if(round($value,$decimals) != $value{
+                    return false;
+                }
+            }
+            
+            if($value == 0){
+                if($null == 1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
 }
