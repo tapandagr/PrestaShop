@@ -29,6 +29,15 @@
 
 <div class="row">
 	<div class="col-lg-12">
+    {if isset($custom_buttons)}
+      <div class="{$smarty.get.controller|escape|strtolower} panel">
+        <div class="row">
+          {foreach $custom_buttons as $b}
+            <div class="col-sm-3 col-xs-6"><a href="{$b.url}" title="{$b.title}">{$b.text}</a></div>
+          {/foreach}
+        </div>
+      </div>
+    {/if}
 		{if isset($content)}
 			{$content}
 		{/if}
