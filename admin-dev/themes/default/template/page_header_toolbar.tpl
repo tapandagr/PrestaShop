@@ -163,6 +163,17 @@
         </ul>
       </div>
     {/if}
+    {if isset($header_tabs)}
+        <div class="page-head-tabs" id="head_tabs">
+            <ul class="nav">
+                {foreach $header_tabs as $t}
+                    <li>
+                        <a href="#">{$t.meta_title}</a>
+                    </li>
+                {/foreach}
+            </ul>
+        </div>
+    {/if}
   </div>
   {hook h='displayDashboardTop'}
 </div>
