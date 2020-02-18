@@ -287,7 +287,7 @@ class FrontControllerCore extends Controller
         $this->sslRedirection();
 
         if ($this->ajax) {
-            $this->display_header = false;
+            $this->display_header = true;
             $this->display_footer = false;
         }
 
