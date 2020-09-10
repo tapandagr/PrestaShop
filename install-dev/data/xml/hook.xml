@@ -801,5 +801,10 @@
       <title>Processing Maintenance page form</title>
       <description>This hook is called when the Maintenance Page form is processed</description>
     </hook>
+    <hook id="actionModuleUpgradeAfter">
+      <name>actionModuleUpgradeAfter</name>
+      <title>It fires when a module gets upgraded</title>
+      <description></description>
+    </hook>
   </entities>
 </entity_hook>
